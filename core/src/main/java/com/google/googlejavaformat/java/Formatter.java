@@ -154,7 +154,9 @@ public final class Formatter {
     }
     OpsBuilder builder = new OpsBuilder(javaInput, javaOutput);
     // Output the compilation unit.
-    new JavaInputAstVisitor(builder, options.indentationMultiplier()).scan(unit, null);
+    new JavaInputAstVisitor(
+            builder, options.indentationMultiplier(), options.continuationMultiplier())
+        .scan(unit, null);
     builder.sync(javaInput.getText().length());
     builder.drain();
     Doc doc = new DocBuilder().withOps(builder.build()).build();

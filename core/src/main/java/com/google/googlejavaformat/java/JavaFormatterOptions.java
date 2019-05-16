@@ -31,19 +31,27 @@ public class JavaFormatterOptions {
 
   public enum Style {
     /** The default Google Java Style configuration. */
-    GOOGLE(1),
+    GOOGLE(1, 2),
 
     /** The AOSP-compliant configuration. */
-    AOSP(2);
+    AOSP(2, 2),
+
+    /** Personal configuration. */
+    PAAS(2, 1);
 
     private final int indentationMultiplier;
+    private final int continuationMultiplier;
 
-    Style(int indentationMultiplier) {
+    Style(int indentationMultiplier, int continuationMultiplier) {
       this.indentationMultiplier = indentationMultiplier;
+      this.continuationMultiplier = continuationMultiplier;
     }
 
     int indentationMultiplier() {
       return indentationMultiplier;
+    }
+    int continuationMultiplier() {
+      return continuationMultiplier;
     }
   }
 
@@ -56,6 +64,10 @@ public class JavaFormatterOptions {
   /** Returns the multiplier for the unit of indent. */
   public int indentationMultiplier() {
     return style.indentationMultiplier();
+  }
+  
+  public int continuationMultiplier() {
+    return style.continuationMultiplier();
   }
 
   /** Returns the code style. */

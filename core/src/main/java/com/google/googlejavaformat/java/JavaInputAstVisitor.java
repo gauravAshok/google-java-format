@@ -305,13 +305,13 @@ public final class JavaInputAstVisitor extends TreePathScanner<Void, Void> {
    *
    * @param builder the {@link OpsBuilder}
    */
-  public JavaInputAstVisitor(OpsBuilder builder, int indentMultiplier) {
+  public JavaInputAstVisitor(OpsBuilder builder, int indentMultiplier, int continuationMultiplier) {
     this.builder = builder;
     this.indentMultiplier = indentMultiplier;
     minusTwo = Indent.Const.make(-2, indentMultiplier);
-    minusFour = Indent.Const.make(-4, indentMultiplier);
+    minusFour = Indent.Const.make(-2 * continuationMultiplier, indentMultiplier);
     plusTwo = Indent.Const.make(+2, indentMultiplier);
-    plusFour = Indent.Const.make(+4, indentMultiplier);
+    plusFour = Indent.Const.make(+2 * continuationMultiplier, indentMultiplier);
   }
 
   /** A record of whether we have visited into an expression. */
