@@ -23,9 +23,9 @@ import java.util.Objects;
 
 /** Configuration options for the formatting style. */
 enum UiFormatterStyle {
-  GOOGLE("Default Google Java. Indentation style: 2,4", Style.GOOGLE),
-  AOSP("Android Open Source Project (AOSP). Indentation style: 4,8", Style.AOSP),
-  PAAS("Paas. Indentation style: 4,4", Style.PAAS);
+  GOOGLE("Default Google Java. Indentation style: 2,4. width: 100", Style.GOOGLE),
+  AOSP("Android Open Source Project (AOSP). Indentation style: 4,8. width: 100", Style.AOSP),
+  PAAS("Paas. Indentation style: 4,4. width: 160", Style.PAAS);
 
   private final String description;
   private final JavaFormatterOptions.Style style;

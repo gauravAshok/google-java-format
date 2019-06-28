@@ -31,20 +31,22 @@ public class JavaFormatterOptions {
 
   public enum Style {
     /** The default Google Java Style configuration. */
-    GOOGLE(1, 2),
+    GOOGLE(1, 2, 100),
 
     /** The AOSP-compliant configuration. */
-    AOSP(2, 2),
+    AOSP(2, 2, 100),
 
     /** Personal configuration. */
-    PAAS(2, 1);
+    PAAS(2, 1, 160);
 
     private final int indentationMultiplier;
     private final int continuationMultiplier;
+    private final int maxLineLength;
 
-    Style(int indentationMultiplier, int continuationMultiplier) {
+    Style(int indentationMultiplier, int continuationMultiplier, int maxLineLength) {
       this.indentationMultiplier = indentationMultiplier;
       this.continuationMultiplier = continuationMultiplier;
+      this.maxLineLength = maxLineLength;
     }
 
     int indentationMultiplier() {
@@ -52,6 +54,9 @@ public class JavaFormatterOptions {
     }
     int continuationMultiplier() {
       return continuationMultiplier;
+    }
+    int maxLineLength() {
+      return maxLineLength;
     }
   }
 
@@ -68,6 +73,10 @@ public class JavaFormatterOptions {
   
   public int continuationMultiplier() {
     return style.continuationMultiplier();
+  }
+
+  public int maxLineLength() {
+    return style.maxLineLength();
   }
 
   /** Returns the code style. */
