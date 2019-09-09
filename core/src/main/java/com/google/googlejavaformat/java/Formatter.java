@@ -219,7 +219,7 @@ public final class Formatter {
     input = ImportOrderer.reorderImports(input, options.style());
     input = RemoveUnusedImports.removeUnusedImports(input);
     String formatted = formatSource(input);
-    formatted = StringWrapper.wrap(formatted, options);
+    formatted = StringWrapper.wrap(formatted, this, options);
     return formatted;
   }
 
