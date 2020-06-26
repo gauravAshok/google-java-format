@@ -43,7 +43,7 @@ public final class JavaCommentsHelper implements CommentsHelper {
       return tok.getOriginalText();
     }
     String text = tok.getOriginalText();
-    if (tok.isJavadocComment()) {
+    if (tok.isJavadocComment() && options.formatJavadoc()) {
       text = JavadocFormatter.formatJavadoc(text, column0);
     }
     List<String> lines = new ArrayList<>();
